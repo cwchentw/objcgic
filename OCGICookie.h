@@ -8,4 +8,5 @@
 }
 
 +(NSDictionary *) stringByName: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) integerByName: (NSString *)name defaultValue: (NSNumber *)defaultV;
 @end
