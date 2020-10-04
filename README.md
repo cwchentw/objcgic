@@ -52,7 +52,7 @@ $ git push
 
 ## Update
 
-Backup *CGIMain.m*, *build*, *clean* and any other modified files. Afterwards, pull this repo again:
+Backup *OCGIMain.m*, *build*, *clean* and any other modified files. Afterwards, pull this repo again:
 
 ```
 $ git pull https://github.com/cwchentw/objcgic.git
