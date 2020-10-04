@@ -43,6 +43,13 @@ If your build command becomes too long, consider to set these variables in *buil
 
 Because of the design of cgic, you have to use objcgic on the basis of one CGI script per repo.
 
+If you want to save your own CGI script, push it remotely to a repo other than this one:
+
+```
+$ git remote set-url origin path/to/remote/git/repo.git
+$ git push
+```
+
 ## API Documentation
 
 Pending.
