@@ -30,4 +30,18 @@
         [NSNumber numberWithInt: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
+
++(NSDictionary *) stringSpaceNeededBy: (NSString *)name
+{
+    int *result;
+
+    cgiFormResultType status = \
+        cgiFormStringSpaceNeeded(
+	        (char *)[name cString],
+            result);
+
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithInt: *result], @"result"];
+}
 @end
