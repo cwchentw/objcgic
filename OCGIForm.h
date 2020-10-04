@@ -25,4 +25,5 @@
 }
 
 +(NSDictionary *) by: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) noNewlinesBy: (NSString *)name length: (NSNumber *)max;
 @end
