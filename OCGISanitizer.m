@@ -12,7 +12,7 @@
 +(OCGIFormResultType) escapeHTML: (NSString *)data length: (NSNumber *)len
 {
     cgiFormResultType status = \
-        cgiHtmlEscapeData(\
+        cgiHtmlEscapeData(
             [data cString],
             [len intValue]);
 
@@ -30,7 +30,7 @@
 +(OCGIFormResultType) eacapeValue: (NSString *)data length: (NSNumber *)len
 {
     cgiFormResultType status = \
-        cgiValueEscapeData(\
+        cgiValueEscapeData(
             [data cString],
             [len intValue]);
 

@@ -7,7 +7,7 @@
     char *result;
 
     cgiFormResultType status = \
-        cgiFormString(\
+        cgiFormString(
 	        (char *)[name cString],
             result,
             [max intValue]);
@@ -22,7 +22,7 @@
     char *result;
 
     cgiFormResultType status = \
-        cgiFormStringNoNewlines(\
+        cgiFormStringNoNewlines(
 	        (char *)[name cString],
             result,
             [max intValue]);
@@ -51,7 +51,7 @@
     int *result;
 
     cgiFormResultType status = \
-        cgiFormInteger(\
+        cgiFormInteger(
 	        (char *)[name cString],
             result,
             [defaultV intValue]);
@@ -67,7 +67,7 @@
     int *result;
 
     cgiFormResultType status = \
-        cgiFormIntegerBounded(\
+        cgiFormIntegerBounded(
 	        (char *)[name cString],
             result,
             [min intValue],
@@ -100,7 +100,7 @@
     double *result;
 
     cgiFormResultType status = \
-        cgiFormDoubleBounded(\
+        cgiFormDoubleBounded(
 	        (char *)[name cString],
             result,
             [min doubleValue],

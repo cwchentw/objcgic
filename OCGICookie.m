@@ -37,7 +37,7 @@
     path: (NSString *)path domain: (NSString *)domain \
     options: (OCGI_COOKIE_OPTIONS) options
 {
-    cgiHeaderCookieSet(\
+    cgiHeaderCookieSet(
         (char *)[name cString],
         (char *)[value cString],
 	    [secondsToLive intValue],
@@ -50,7 +50,7 @@
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain
 {
-    cgiHeaderCookieSetString(\
+    cgiHeaderCookieSetString(
         (char *)[name cString],
         (char *)[value cString],
 	    [secondsToLive intValue],
@@ -62,7 +62,7 @@
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain
 {
-    cgiHeaderCookieSetInteger(\
+    cgiHeaderCookieSetInteger(
         (char *)[name cString],
         [value intValue],
 	    [secondsToLive intValue],
