@@ -24,6 +24,6 @@
     /* No instance field. */
 }
 
-+(NSDictionary *) by: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) noNewlinesBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max;
 @end

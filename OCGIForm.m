@@ -1,7 +1,7 @@
 #import "OCGIForm.h"
 
 @implementation OCGIForm
-+(NSDictionary *) by: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
 {
     char *result;
 
@@ -16,7 +16,7 @@
         [NSString stringWithCString: result], @"result"];
 }
 
-+(NSDictionary *) noNewlinesBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max
 {
     char *result;
 

@@ -14,16 +14,16 @@
     /* No instance field. */
 }
 
-+(NSDictionary *) by: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) by: (NSString *)name defaultValue: (NSNumber *)defaultV;
-+(void) setBy: (NSString *)name to: (NSString *)value \
++(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV;
++(void) setStringBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain \
     options: (OCGI_COOKIE_OPTIONS)options;
-+(void) setBy: (NSString *)name to: (NSString *)value \
++(void) setStringBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain;
-+(void) setBy: (NSString *)name toInteger: (NSNumber *)value \
++(void) setIntegerBy: (NSString *)name to: (NSNumber *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain;
 @end

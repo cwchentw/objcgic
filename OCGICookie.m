@@ -3,7 +3,7 @@
 
 
 @implementation OCGICookie
-+(NSDictionary *) by: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
 {
     char *result;
 
@@ -17,7 +17,7 @@
         [NSString stringWithCString: result], @"result"];
 }
 
-+(NSDictionary *) by: (NSString *)name defaultValue: (NSNumber *)defaultV
++(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
     int *result;
 
@@ -32,7 +32,7 @@
         [NSNumber numberWithInt: *result], @"result"];
 }
 
-+(void) setBy: (NSString *)name to: (NSString *)value \
++(void) setStringBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain \
     options: (OCGI_COOKIE_OPTIONS) options
@@ -46,7 +46,7 @@
         options);
 }
 
-+(void) setBy: (NSString *)name to: (NSString *)value \
++(void) setStringBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain
 {
@@ -58,7 +58,7 @@
         (char *)[domain cString]);
 }
 
-+(void) setBy: (NSString *)name toInteger: (NSNumber *)value \
++(void) setIntegerBy: (NSString *)name to: (NSNumber *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain
 {
