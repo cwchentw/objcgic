@@ -8,4 +8,14 @@
 
     return status;
 }
+
++(OCGI_FORM_RESULT_TYPE) escapeHTML: (NSString *)data length: (NSNumber *)len
+{
+    cgiFormResultType status = \
+        cgiHtmlEscapeData(\
+            [data cString],
+            [len intValue]);
+
+    return status;
+}
 @end
