@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#include "cgic.h"
 #import "OCGICookie.h"
 
 
