@@ -11,7 +11,7 @@ objcgic is still experimental. Don't use it on production environment.
 
 It should work on Cocoa as well, though untested.
 
-cgic itself is not needed because the repo bundles a snapshot of cgic.
+[cgic](https://github.com/boutell/cgic) itself is not needed because the repo bundles its snapshot.
 
 ## Usage
 
@@ -39,7 +39,7 @@ $ make GNUSTEP_INCLUDE=/path/to/GNUstep/System/Library/Headers GNUSTEP_LIB=/path
 
 The layout of your local GNUstep may vary. Adjust these variables accordingly.
 
-If your build command becomes too long, consider to set these variables in *build* and run it instead.
+If your build command becomes too long, consider to set these variables in [build](/build) and run it instead.
 
 Because of the design of cgic, you have to use objcgic on the basis of one CGI script per repo.
 
