@@ -42,7 +42,7 @@
 #define OCGI_MIME_TYPE_JSON_UTF8  @"application/json; charset=utf-8"
 #define OCGI_MIME_TYPE_JSONLD     @"application/ld+json"
 
-#define OCGI_MIME_TYPE_MIDI  @"audio/midi audio/x-midi"
+#define OCGI_MIME_TYPE_MIDI  @"audio/midi"
 #define OCGI_MIME_TYPE_MJS   @"text/javascript"
 #define OCGI_MIME_TYPE_MP3   @"audio/mpeg"
 #define OCGI_MIME_TYPE_MPEG  @"video/mpeg"
