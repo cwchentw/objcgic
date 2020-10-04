@@ -1,6 +1,7 @@
 #!/bin/sh
 
-MAKE=$(which make)
+# Modify the variable to fit your local make
+MAKE=make
 
 if ! command -v $MAKE 2>&1 1>/dev/null;
 then
@@ -8,7 +9,7 @@ then
     exit 1
 fi
 
-# Set custom variables here.
+# Set your own custom variables here.
 CGI_PROGRAM=
 GNUSTEP_INCLUDE=
 GNUSTEP_LIB=
