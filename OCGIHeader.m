@@ -13,4 +13,9 @@
         [status intValue],
         (char *)[statusMessage cString]);
 }
+
++(void) contentType: (NSString *)mimeType
+{
+    cgiHeaderContentType((char *)[mimeType cString]);
+}
 @end
