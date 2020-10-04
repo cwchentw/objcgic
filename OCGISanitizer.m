@@ -26,4 +26,14 @@
 
     return status;
 }
+
++(OCGI_FORM_RESULT_TYPE) eacapeValue: (NSString *)data length: (NSNumber *)len
+{
+    cgiFormResultType status = \
+        cgiValueEscapeData(\
+            [data cString],
+            [len intValue]);
+
+    return status;
+}
 @end
