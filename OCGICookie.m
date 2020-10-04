@@ -4,7 +4,7 @@
 
 
 @implementation OCGICookie
-+(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) by: (NSString *)name length: (NSNumber *)max
 {
     char *result;
 
@@ -18,7 +18,7 @@
         [NSString stringWithCString: result], @"result"];
 }
 
-+(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
++(NSDictionary *) by: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
     int *result;
 
@@ -45,5 +45,17 @@
         (char *)[path cString],
         (char *)[domain cString],
         options);
+}
+
++(void) setBy: (NSString *)name to: (NSString *)value \
+    toLive: (NSNumber *)secondsToLive \
+    path: (NSString *)path domain: (NSString *)domain
+{
+    cgiHeaderCookieSetString(\
+        (char *)[name cString],
+        (char *)[value cString],
+	    [secondsToLive intValue],
+        (char *)[path cString],
+        (char *)[domain cString]);
 }
 @end
