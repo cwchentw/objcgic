@@ -13,7 +13,7 @@
             [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
 
@@ -28,7 +28,7 @@
             [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
 
@@ -42,7 +42,7 @@
             result);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
@@ -57,7 +57,7 @@
             [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
@@ -75,7 +75,7 @@
             [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
@@ -90,7 +90,7 @@
             [defaultV doubleValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithDouble: *result], @"result"];
 }
 
@@ -108,7 +108,7 @@
             [defaultV doubleValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithDouble: *result], @"result"];
 }
 @end

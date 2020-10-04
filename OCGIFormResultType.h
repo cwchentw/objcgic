@@ -21,7 +21,7 @@
 #define  OCGI_FORM_EOF              cgiFormEOF
 
 @protocol OCGIFormResultType
-+(NSNumber *) numberWithOCGIFormType: (OCGIFormResultType)type;
--(NSNumber *) initWithOCGIFormType: (OCGIFormResultType)type;
--(OCGIFormResultType) ocgiFormType;
++(NSNumber *) numberWithOCGIFormResultType: (OCGIFormResultType)type;
+-(NSNumber *) initWithOCGIFormResultType: (OCGIFormResultType)type;
+-(OCGIFormResultType) ocgiFormResultType;
 @end

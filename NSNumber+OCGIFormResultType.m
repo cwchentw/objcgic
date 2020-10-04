@@ -2,17 +2,17 @@
 #import "NSNumber+OCGIFormResultType.h"
 
 @implementation NSNumber (OCGIFormResultType)
-+(NSNumber *) numberWithOCGIFormType: (OCGIFormResultType)type
++(NSNumber *) numberWithOCGIFormResultType: (OCGIFormResultType)type
 {
     return [NSNumber numberWithInt: type];
 }
 
--(NSNumber *) initWithOCGIFormType: (OCGIFormResultType)type
+-(NSNumber *) initWithOCGIFormResultType: (OCGIFormResultType)type
 {
     return [self initWithInt: type];
 }
 
--(OCGIFormResultType) ocgiFormType
+-(OCGIFormResultType) ocgiFormResultType
 {
     return (OCGIFormResultType) [self intValue];
 }
