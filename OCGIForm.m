@@ -78,4 +78,19 @@
         [NSNumber numberWithOCGIFormType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
+
++(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV
+{
+    double *result;
+
+    cgiFormResultType status = \
+        cgiFormDouble(
+	        (char *)[name cString],
+            result,
+            [defaultV doubleValue]);
+
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithDouble: *result], @"result"];
+}
 @end
