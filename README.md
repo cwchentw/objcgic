@@ -21,7 +21,7 @@ Clone the repo:
 $ git clone https://github.com/cwchentw/objcgic.git
 ```
 
-Implement your CGI script in *CGIMain.m*.
+Implement your CGI script in [OCGIMain.m](/OCGIMain.m).
 
 Compile the repo:
 
@@ -52,7 +52,7 @@ $ git push
 
 ## Update
 
-Backup *CGIMain.m*, *build*, *clean* and any other modified files. Afterwards, pull this repo again:
+Backup *OCGIMain.m*, *build*, *clean* and any other modified files. Afterwards, pull this repo again:
 
 ```
 $ git pull https://github.com/cwchentw/objcgic.git
