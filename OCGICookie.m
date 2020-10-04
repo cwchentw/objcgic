@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "NSNumber+OCGIFormResultType.h"
 #import "OCGICookie.h"
 
 
@@ -13,7 +14,7 @@
             result, [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
 
@@ -28,7 +29,7 @@
             [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
