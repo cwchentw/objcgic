@@ -27,7 +27,7 @@ else
 endif
 endif
 
-OBJS=OCGIHeader.o OCGICookie.o OCGIMain.o
+OBJS=OCGIHeader.o OCGICookie.o OCGISanitizer.o OCGIMain.o
 
 
 .PHONY: all clean

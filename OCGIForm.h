@@ -3,6 +3,8 @@
 #import <Foundation/Foundation.h>
 #include "cgic.h"
 
+#define  OCGI_FORM_RESULT_TYPE  cgiFormResultType
+
 #define  OCGI_FORM_SUCCESS          cgiFormSuccess
 #define  OCGI_FORM_TRUNCATED        cgiFormTruncated
 #define  OCGI_FORM_BAD_TYPE         cgiFormBadType
