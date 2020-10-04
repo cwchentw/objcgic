@@ -1,3 +1,4 @@
+#import "NSNumber+OCGIFormResultType.h"
 #import "OCGIForm.h"
 
 @implementation OCGIForm
@@ -12,7 +13,7 @@
             [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormType: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
 
@@ -27,7 +28,7 @@
             [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormType: status], @"status",
         [NSString stringWithCString: result], @"result"];
 }
 
@@ -41,7 +42,7 @@
             result);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
@@ -56,7 +57,7 @@
             [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 
@@ -74,7 +75,7 @@
             [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithOCGIFormType: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
 @end
