@@ -18,10 +18,16 @@ It should work on Cocoa as well, though untested.
 Clone the repo:
 
 ```
-$ git clone https://github.com/cwchentw/objcgic.git
+$ git clone https://github.com/cwchentw/objcgic.git my-cgi-script
 ```
 
-Implement your CGI script in [OCGIMain.m](/OCGIMain.m).
+Change the working directory to the root of *my-cgi-script*:
+
+```
+$ cd my-cgi-script
+```
+
+Implement your CGI script in `cgiMain` function of [OCGIMain.m](/OCGIMain.m).
 
 Compile the repo:
 
