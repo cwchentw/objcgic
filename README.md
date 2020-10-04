@@ -50,6 +50,16 @@ $ git remote set-url origin path/to/remote/git/repo.git
 $ git push
 ```
 
+## Update
+
+Backup *CGIMain.m*, *build*, *clean* and any other modified files. Afterwards, pull this repo again:
+
+```
+$ git pull https://github.com/cwchentw/objcgic.git
+```
+
+Git will merge updated code automatically for you, which should not require any manual intervention. If any conflict bewteen code occurs, fix it by yourself.
+
 ## API Documentation
 
 Pending.
