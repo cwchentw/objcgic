@@ -1,10 +1,12 @@
+#include <stdlib.h>
 #import "NSNumber+OCGIFormResultType.h"
 #import "OCGIForm.h"
 
 @implementation OCGIForm
 +(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
 {
-    char *result;
+    char *result = \
+        (char *) malloc(sizeof(char) * ([max intValue] + 1));
 
     cgiFormResultType status = \
         cgiFormString(
@@ -19,7 +21,8 @@
 
 +(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max
 {
-    char *result;
+    char *result = \
+        (char *) malloc(sizeof(char) * ([max intValue] + 1));
 
     cgiFormResultType status = \
         cgiFormStringNoNewlines(
@@ -34,7 +37,7 @@
 
 +(NSDictionary *) stringSpaceNeededBy: (NSString *)name
 {
-    int *result;
+    int *result = (int *) malloc(sizeof(int));
 
     cgiFormResultType status = \
         cgiFormStringSpaceNeeded(
@@ -48,7 +51,7 @@
 
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
-    int *result;
+    int *result = (int *) malloc(sizeof(int));
 
     cgiFormResultType status = \
         cgiFormInteger(
@@ -64,7 +67,7 @@
 +(NSDictionary *) integerBoundedBy: (NSString *)name \
     min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
 {
-    int *result;
+    int *result = (int *) malloc(sizeof(int));
 
     cgiFormResultType status = \
         cgiFormIntegerBounded(
@@ -81,7 +84,7 @@
 
 +(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
-    double *result;
+    double *result = (double *) malloc(sizeof(double));
 
     cgiFormResultType status = \
         cgiFormDouble(
@@ -97,7 +100,7 @@
 +(NSDictionary *) doubleBoundedBy: (NSString *)name \
     min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
 {
-    double *result;
+    double *result = (double *) malloc(sizeof(double));
 
     cgiFormResultType status = \
         cgiFormDoubleBounded(

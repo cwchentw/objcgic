@@ -6,7 +6,8 @@
 @implementation OCGICookie
 +(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
 {
-    char *result;
+    char *result = \
+        (char *) malloc(sizeof(char) * ([max intValue] + 1));
 
     cgiFormResultType status = \
         cgiCookieString(
@@ -20,7 +21,7 @@
 
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
-    int *result;
+    int *result = (int *) malloc(sizeof(int));
 
     cgiFormResultType status = \
         cgiCookieInteger(
