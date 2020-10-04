@@ -46,9 +46,9 @@ endif
 
 %.o:%.m
 ifeq ($(detected_OS),Darwin)
-	$(CC) -std=c18 -c $< -o $@ $(CFLAGS) -fconstant-string-class=NSConstantString
+	$(CC) -std=c17 -c $< -o $@ $(CFLAGS) -fconstant-string-class=NSConstantString
 else
-	$(CC) -std=c18 -c $< -o $@ $(CFLAGS) -I $(GNUSTEP_INCLUDE) -fconstant-string-class=NSConstantString
+	$(CC) -std=c17 -c $< -o $@ $(CFLAGS) -I $(GNUSTEP_INCLUDE) -fconstant-string-class=NSConstantString
 endif
 
 clean:
