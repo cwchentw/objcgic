@@ -44,4 +44,19 @@
         [NSNumber numberWithInt: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
+
++(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
+{
+    int *result;
+
+    cgiFormResultType status = \
+        cgiFormInteger(\
+	        (char *)[name cString],
+            result,
+            [defaultV intValue]);
+
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithInt: *result], @"result"];
+}
 @end

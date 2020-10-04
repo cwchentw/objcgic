@@ -27,4 +27,5 @@
 +(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max;
 +(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max;
 +(NSDictionary *) stringSpaceNeededBy: (NSString *)name;
++(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV;
 @end
