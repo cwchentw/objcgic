@@ -14,4 +14,6 @@
 +(NSDictionary *) integerBoundedBy: (NSString *)name \
     min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV;
 +(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV;
++(NSDictionary *) doubleBoundedBy: (NSString *)name \
+    min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV;
 @end

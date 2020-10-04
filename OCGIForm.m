@@ -93,4 +93,22 @@
         [NSNumber numberWithOCGIFormType: status], @"status",
         [NSNumber numberWithDouble: *result], @"result"];
 }
+
++(NSDictionary *) doubleBoundedBy: (NSString *)name \
+    min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
+{
+    double *result;
+
+    cgiFormResultType status = \
+        cgiFormDoubleBounded(\
+	        (char *)[name cString],
+            result,
+            [min doubleValue],
+            [max doubleValue],
+            [defaultV doubleValue]);
+
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormType: status], @"status",
+        [NSNumber numberWithDouble: *result], @"result"];
+}
 @end
