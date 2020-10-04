@@ -14,9 +14,9 @@
     /* No instance field. */
 }
 
-+(NSDictionary *) stringByName: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) integerByName: (NSString *)name defaultValue: (NSNumber *)defaultV;
-+(void) setByName: (NSString *)name to: (NSString *)value \
++(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV;
++(void) setBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain \
     options: (OCGI_COOKIE_OPTIONS)options;
