@@ -6,7 +6,7 @@ objcgic is still experimental. The API may change without warning. Don't use it 
 
 ## System Requirements
 
-* Clang or GCC
+* Clang or GCC with Objective-C support
 * GNUstep
 
 It should work on Cocoa as well, though untested.
