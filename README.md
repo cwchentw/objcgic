@@ -1,4 +1,4 @@
-# objcgic - A Objective-C binding of cgic
+# objcgic - An Objective-C binding of cgic
 
 ## Warning
 
