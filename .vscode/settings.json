@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cgic.h": "c",
+        "*.h": "objective-c"
+    }
+}
