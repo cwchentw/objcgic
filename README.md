@@ -39,6 +39,8 @@ $ make GNUSTEP_INCLUDE=/path/to/GNUstep/System/Library/Headers GNUSTEP_LIB=/path
 
 The layout of your local GNUstep may vary. Adjust these variables accordingly.
 
+If your build command becomes too long, consider to set these variables in *build* and run it instead.
+
 Because of the design of cgic, you have to use objcgic on the basis of one CGI script per repo.
 
 ## API Documentation

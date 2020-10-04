@@ -1,0 +1,31 @@
+#!/bin/sh
+
+MAKE=$(which make)
+
+if ! command -v $MAKE 2>&1 1>/dev/null;
+then
+    echo "No Make on the system" >&2
+    exit 1
+fi
+
+# Set custom variables here.
+CGI_PROGRAM=
+GNUSTEP_INCLUDE=
+GNUSTEP_LIB=
+
+if ! [ -z "$CGI_PROGRAM" ];
+then
+    SET_CGI_PROGRAM="CGI_PROGRAM=${CGI_PROGRAM}"
+fi
+
+if ! [ -z "$GNUSTEP_INCLUDE" ];
+then
+    SET_GNUSTEP_INCLUDE="GNUSTEP_INCLUDE=${GNUSTEP_INCLUDE}"
+fi
+
+if ! [ -z "$GNUSTEP_LIB" ];
+then
+    SET_GNUSTEP_LIB="GNUSTEP_LIB=${GNUSTEP_LIB}"
+fi
+
+$MAKE $CGI_PROGRAM $SET_CGI_PROGRAM $SET_GNUSTEP_INCLUDE $SET_GNUSTEP_LIB
