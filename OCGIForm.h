@@ -19,3 +19,10 @@
 #define  OCGI_FORM_OPEN_FAILED      cgiFormOpenFailed
 #define  OCGI_FORM_IO               cgiFormIO
 #define  OCGI_FORM_EOF              cgiFormEOF
+
+@interface OCGIForm : NSObject {
+    /* No instance field. */
+}
+
++(NSDictionary *) by: (NSString *)name length: (NSNumber *)max;
+@end
