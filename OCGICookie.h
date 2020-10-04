@@ -23,4 +23,7 @@
 +(void) setBy: (NSString *)name to: (NSString *)value \
     toLive: (NSNumber *)secondsToLive \
     path: (NSString *)path domain: (NSString *)domain;
++(void) setBy: (NSString *)name toInteger: (NSNumber *)value \
+    toLive: (NSNumber *)secondsToLive \
+    path: (NSString *)path domain: (NSString *)domain;
 @end

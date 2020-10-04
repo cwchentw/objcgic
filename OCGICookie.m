@@ -58,4 +58,16 @@
         (char *)[path cString],
         (char *)[domain cString]);
 }
+
++(void) setBy: (NSString *)name toInteger: (NSNumber *)value \
+    toLive: (NSNumber *)secondsToLive \
+    path: (NSString *)path domain: (NSString *)domain
+{
+    cgiHeaderCookieSetInteger(\
+        (char *)[name cString],
+        [value intValue],
+	    [secondsToLive intValue],
+        (char *)[path cString],
+        (char *)[domain cString]);
+}
 @end
