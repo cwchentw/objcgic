@@ -18,4 +18,12 @@
 
     return status;
 }
+
++(OCGI_FORM_RESULT_TYPE) escapeValue: (NSString *)s
+{
+    cgiFormResultType status = \
+        cgiValueEscape([s cString]);
+
+    return status;
+}
 @end
