@@ -8,4 +8,5 @@
 }
 
 +(void) location: (NSString *)redirectUrl;
++(void) status: (NSNumber *)status message: (NSString *)statusMessage;
 @end

@@ -6,4 +6,11 @@
 {
     cgiHeaderLocation((char *)[redirectUrl cString]);
 }
+
++(void) status: (NSNumber *)status message: (NSString *)statusMessage
+{
+    cgiHeaderStatus(
+        [status intValue],
+        (char *)[statusMessage cString]);
+}
 @end
