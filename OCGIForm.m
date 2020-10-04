@@ -59,4 +59,22 @@
         [NSNumber numberWithInt: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
 }
+
++(NSDictionary *) integerBoundedBy: (NSString *)name \
+    min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
+{
+    int *result;
+
+    cgiFormResultType status = \
+        cgiFormIntegerBounded(\
+	        (char *)[name cString],
+            result,
+            [min intValue],
+            [max intValue],
+            [defaultV intValue]);
+
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithInt: status], @"status",
+        [NSNumber numberWithInt: *result], @"result"];
+}
 @end
