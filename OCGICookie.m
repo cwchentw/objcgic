@@ -9,7 +9,9 @@
     char *result;
 
     cgiFormResultType status = \
-        cgiCookieString([name cString], result, [max intValue]);
+        cgiCookieString(
+            (char *)[name cString],
+            result, [max intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithInt: status], @"status",
@@ -21,10 +23,27 @@
     int *result;
 
     cgiFormResultType status = \
-        cgiCookieInteger([name cString], result, [defaultV intValue]);
+        cgiCookieInteger(
+            (char *)[name cString],
+            result,
+            [defaultV intValue]);
 
     return [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithInt: status], @"status",
         [NSNumber numberWithInt: *result], @"result"];
+}
+
++(void) setByName: (NSString *)name to: (NSString *)value \
+    toLive: (NSNumber *)secondsToLive \
+    path: (NSString *)path domain: (NSString *)domain \
+    options: (OCGI_COOKIE_OPTIONS) options
+{
+    cgiHeaderCookieSet(\
+        (char *)[name cString],
+        (char *)[value cString],
+	    [secondsToLive intValue],
+        (char *)[path cString],
+        (char *)[domain cString],
+        options);
 }
 @end
