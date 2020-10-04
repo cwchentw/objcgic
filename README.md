@@ -66,6 +66,10 @@ $ git pull https://github.com/cwchentw/objcgic.git
 
 Git will merge updated code automatically for you, which should not require any manual intervention. If any conflict bewteen code occurs, fix it by yourself.
 
+## Example
+
+See [cgi-hello-objcgic](https://github.com/cwchentw/cgi-hello-objcgic).
+
 ## API Documentation
 
 Pending.
