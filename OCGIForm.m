@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#import "NSArray+RawArray.h"
 #import "NSNumber+OCGIFormResultType.h"
 #import "OCGIForm.h"
 
@@ -294,6 +295,14 @@ ERROR_FUNCTION:
         free(invalid);
 
     return nil;
+}
+
++(NSNumber *) checoboxSingleBy: (NSString *)name
+{
+    cgiFormResultType status = cgiFormCheckboxSingle(
+	    (char *)[name cString]);
+
+    return [NSNumber numberWithOCGIFormResultType: status];
 }
 
 +(NSDictionary *) checkboxMultipleBy: (NSString *)name choices: (NSArray *)choices
