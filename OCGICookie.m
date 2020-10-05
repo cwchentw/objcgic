@@ -8,6 +8,8 @@
 {
     char *result = \
         (char *) malloc(sizeof(char) * ([max intValue] + 1));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiCookieString(
@@ -26,6 +28,8 @@
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
     int *result = (int *) malloc(sizeof(int));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiCookieInteger(

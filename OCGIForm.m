@@ -7,6 +7,8 @@
 {
     char *result = \
         (char *) malloc(sizeof(char) * ([max intValue] + 1));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormString(
@@ -27,6 +29,8 @@
 {
     char *result = \
         (char *) malloc(sizeof(char) * ([max intValue] + 1));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormStringNoNewlines(
@@ -46,6 +50,8 @@
 +(NSDictionary *) stringSpaceNeededBy: (NSString *)name
 {
     int *result = (int *) malloc(sizeof(int));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormStringSpaceNeeded(
@@ -66,6 +72,8 @@
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
     int *result = (int *) malloc(sizeof(int));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormInteger(
@@ -88,6 +96,8 @@
     min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
 {
     int *result = (int *) malloc(sizeof(int));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormIntegerBounded(
@@ -111,6 +121,8 @@
 +(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV
 {
     double *result = (double *) malloc(sizeof(double));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormDouble(
@@ -133,6 +145,8 @@
     min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
 {
     double *result = (double *) malloc(sizeof(double));
+    if (!result)
+        return nil;
 
     cgiFormResultType status = \
         cgiFormDoubleBounded(
