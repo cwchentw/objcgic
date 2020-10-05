@@ -259,7 +259,7 @@
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         _result, @"result",
-        _invalid, @"invalid"];
+        [NSNumber numberWithInt: _invalid], @"invalid"];
 
     if (choicesText) {
         /* FIXME: Check whether any memory corruption. */
