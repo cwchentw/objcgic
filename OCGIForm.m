@@ -270,6 +270,13 @@
         free(choicesText);
     }
 
+    {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            [resultObjs[i] release];
+    }
+    free(resultObjs);
+
     free(result);
     free(invalid);
 
