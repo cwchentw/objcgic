@@ -203,15 +203,17 @@
 +(NSDictionary *) selectSingleBy: (NSString *)name \
     choices: (NSArray *)choices defaultValue: (NSNumber *)defaultV
 {
-    int *result = (int *) malloc(sizeof(int));
-    if (!result)
-        return nil;
+    int *result = NULL;
+    char ** choicesText = NULL;
+    NSDictionary *out = nil;
 
-    char **choicesText = [choices cStringArray];
-    if (!choicesText) {
-        free(result);
-        return nil;
-    }
+    result = (int *) malloc(sizeof(int));
+    if (!result)
+        goto ERROR_FUNCTION;
+
+    choicesText = [choices cStringArray];
+    if (!choicesText)
+        goto ERROR_FUNCTION;
 
     int choicesTotal = [choices count];
 
@@ -222,9 +224,11 @@
 
     int _result = *result;
 
-    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
+    out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSNumber numberWithInt: _result], @"result"];
+    if (!out)
+        goto ERROR_FUNCTION;
 
     /* FIXME: Check whether any memory corruption occurs. */
     {
@@ -236,6 +240,20 @@
     free(result);
 
     return out;
+
+ERROR_FUNCTION:
+    /* FIXME: Check whether any memory corruption occurs. */
+    if (choicesText) {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            free(choicesText[i]);
+        free(choicesText);
+    }
+
+    if (result)
+        free(result);
+
+    return nil;
 }
 
 +(NSDictionary *) selectMultipleBy: (NSString *)name choices: (NSArray *)choices
