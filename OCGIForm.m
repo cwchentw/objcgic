@@ -35,20 +35,25 @@
 
 +(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max
 {
+    int _max = [max intValue];
+
     char *result = \
-        (char *) malloc(sizeof(char) * ([max intValue] + 1));
+        (char *) malloc(sizeof(char) * (_max + 1));
     if (!result)
         return nil;
 
+    result[0] = '\0';
+
     cgiFormResultType status = \
-        cgiFormStringNoNewlines(
-	        (char *)[name cString],
-            result,
-            [max intValue]);
+        cgiFormStringNoNewlines((char *)[name cString], result, _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
+    if (!out) {
+        free(result);
+        return nil;
+    }
 
     free(result);
 
