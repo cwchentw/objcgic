@@ -204,4 +204,95 @@
 
     return out;
 }
+
++(NSDictionary *) selectMultipleBy: (NSString *)name choices: (NSArray *)choices
+{
+    int *invalid;
+    int *result;
+    NSNumber **resultObjs;
+    char **choicesText;
+    NSArray *_result;
+
+    invalid = (int *) malloc(sizeof(int));
+    if (!invalid)
+        goto ERROR_FUNCTION;
+
+    int choicesTotal = [choices count];
+
+    result = (int *) malloc(sizeof(int) * choicesTotal);
+    if (!result)
+        goto ERROR_FUNCTION;
+
+    resultObjs = (NSNumber **) malloc(sizeof(NSNumber *) * choicesTotal);
+    if (!resultObjs)
+        goto ERROR_FUNCTION;
+
+    choicesText = [choices cStringArray];
+    if (!choicesText)
+        goto ERROR_FUNCTION;
+
+    cgiFormResultType status = cgiFormSelectMultiple(
+	    (char *)[name cString], choicesText, choicesTotal, 
+	    result, invalid);
+
+    {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            resultObjs[i] = [NSNumber numberWithInt: result[i]];
+    }
+
+    _result = [NSArray arrayWithObjects: resultObjs count: choicesTotal];
+    if (_result)
+        goto ERROR_FUNCTION;
+
+    int _invalid = *invalid;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
+        _result, @"result",
+        _invalid, @"invalid"];
+
+    if (choicesText) {
+        /* FIXME: Check whether any memory corruption. */
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            free(choicesText[i]);
+
+        free(choicesText);
+    }
+
+    free(result);
+    free(invalid);
+
+    return out;
+
+ERROR_FUNCTION:
+    if (_result)
+        [_result release];
+
+    if (choicesText) {
+        /* FIXME: Check whether any memory corruption. */
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            free(choicesText[i]);
+
+        free(choicesText);
+    }
+
+    if (resultObjs) {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            [resultObjs[i] release];
+
+        free(resultObjs);
+    }
+
+    if (result)
+        free(result);
+
+    if (invalid)
+        free(invalid);
+
+    return nil;
+}
 @end
