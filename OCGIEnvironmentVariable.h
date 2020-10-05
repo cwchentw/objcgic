@@ -1,7 +1,9 @@
 #pragma once
 
-#import <Foundation/Foundation.h>
 #include "cgic.h"
+
+#import <Foundation/Foundation.h>
+
 
 /* CGI request meta-variables. */
 #define  OCGI_AUTH_TYPE          [NSString stringWithCString: cgiAuthType]

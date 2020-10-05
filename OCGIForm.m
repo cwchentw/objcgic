@@ -1,7 +1,9 @@
 #include <stdlib.h>
+
 #import "NSArray+RawArray.h"
 #import "NSNumber+OCGIFormResultType.h"
 #import "OCGIForm.h"
+
 
 @implementation OCGIForm
 +(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max

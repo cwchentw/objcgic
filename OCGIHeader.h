@@ -1,7 +1,8 @@
 #pragma once
 
-#import <Foundation/Foundation.h>
 #include "cgic.h"
+
+#import <Foundation/Foundation.h>
 
 
 @interface OCGIHeader : NSObject {

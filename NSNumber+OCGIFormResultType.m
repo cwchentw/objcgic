@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "NSNumber+OCGIFormResultType.h"
 
+
 @implementation NSNumber (OCGIFormResultType)
 +(NSNumber *) numberWithOCGIFormResultType: (OCGIFormResultType)type
 {

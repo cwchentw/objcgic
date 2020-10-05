@@ -1,4 +1,5 @@
 #pragma once
+
 #import "OCGIFormResultType.h"
 
 @interface NSNumber (OCGIFormResultType)

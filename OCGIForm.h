@@ -1,7 +1,9 @@
 #pragma once
 
-#import <Foundation/Foundation.h>
 #include "cgic.h"
+
+#import <Foundation/Foundation.h>
+
 
 @interface OCGIForm : NSObject {
     /* No instance field. */

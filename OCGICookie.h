@@ -1,7 +1,8 @@
 #pragma once
 
-#import <Foundation/Foundation.h>
 #include "cgic.h"
+
+#import <Foundation/Foundation.h>
 
 /* Alias to enum cgiCookieOption */
 #define  OCGI_COOKIE_OPTIONS  cgiCookieOption
@@ -9,6 +10,7 @@
 #define  OCGI_COOKIE_SECURE           cgiCookieSecure
 #define  OCGI_COOKIE_HTTP_ONLY        cgiCookieHttpOnly
 #define  OCGI_COOKIE_SAME_SITE_STRICT cgiCookieSameSiteStrict
+
 
 @interface OCGICookie : NSObject {
     /* No instance field. */

@@ -1,6 +1,8 @@
-#import <Foundation/Foundation.h>
 #include <stdlib.h>
+
+#import <Foundation/Foundation.h>
 #import "NSArray+RawArray.h"
+
 
 @implementation NSArray (RawArray)
 -(char **) cStringArray
