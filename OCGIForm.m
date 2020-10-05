@@ -327,4 +327,13 @@ ERROR_FUNCTION:
        The relation may change in the future. */
     return [self selectMultipleBy: name choices: choices];
 }
+
++(NSDictionary *) radioBy: (NSString *)name \
+    values: (NSArray *)values defaultValue: (NSNumber *)defaultV
+{
+    /* We peeked the source of cgic.c, recognizing that the implementation of
+       `cgiFormRadio` is identical to `cgiFormSelectSingle`.
+       The relation may change in the future. */
+    return [self selectSingleBy: name choices: values defaultValue: defaultV];
+}
 @end

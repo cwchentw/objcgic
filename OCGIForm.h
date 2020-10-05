@@ -23,4 +23,6 @@
 +(NSDictionary *) selectMultipleBy: (NSString *)name choices: (NSArray *)choices;
 +(NSNumber *) checoboxSingleBy: (NSString *)name;
 +(NSDictionary *) checkboxMultipleBy: (NSString *)name choices: (NSArray *)choices;
++(NSDictionary *) radioBy: (NSString *)name \
+    values: (NSArray *)values defaultValue: (NSNumber *)defaultV;
 @end
