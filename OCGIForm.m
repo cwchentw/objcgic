@@ -295,4 +295,12 @@ ERROR_FUNCTION:
 
     return nil;
 }
+
++(NSDictionary *) checkboxMultipleBy: (NSString *)name choices: (NSArray *)choices
+{
+    /* We peeked the source of cgic.c, recognizing that the implementation of
+       `cgiFormCheckboxMultiple` is identical to `cgiFormSelectMultiple`.
+       The relation may change in the future. */
+    return [self selectMultipleBy: name choices: choices];
+}
 @end
