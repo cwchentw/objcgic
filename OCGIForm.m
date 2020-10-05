@@ -14,9 +14,13 @@
             result,
             [max intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max
@@ -30,9 +34,13 @@
             result,
             [max intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) stringSpaceNeededBy: (NSString *)name
@@ -44,9 +52,15 @@
 	        (char *)[name cString],
             result);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: *result], @"result"];
+        [NSNumber numberWithInt: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
@@ -59,9 +73,15 @@
             result,
             [defaultV intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: *result], @"result"];
+        [NSNumber numberWithInt: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) integerBoundedBy: (NSString *)name \
@@ -77,9 +97,15 @@
             [max intValue],
             [defaultV intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: *result], @"result"];
+        [NSNumber numberWithInt: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV
@@ -92,9 +118,15 @@
             result,
             [defaultV doubleValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithDouble: *result], @"result"];
+        [NSNumber numberWithDouble: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) doubleBoundedBy: (NSString *)name \
@@ -110,8 +142,14 @@
             [max doubleValue],
             [defaultV doubleValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    double _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithDouble: *result], @"result"];
+        [NSNumber numberWithDouble: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 @end

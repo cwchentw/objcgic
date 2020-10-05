@@ -14,9 +14,13 @@
             (char *)[name cString],
             result, [max intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
@@ -29,9 +33,15 @@
             result,
             [defaultV intValue]);
 
-    return [NSDictionary dictionaryWithObjectsAndKeys:
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: *result], @"result"];
+        [NSNumber numberWithInt: _result], @"result"];
+
+    free(result);
+
+    return out;
 }
 
 +(void) setStringBy: (NSString *)name to: (NSString *)value \
