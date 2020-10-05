@@ -1,7 +1,7 @@
 #pragma once
 
 #import "OCGIFormResultType.h"
-#import "NSNUmber+OCGIFormResultType.h"
+#import "NSNumber+OCGIFormResultType.h"
 #import "NSArray+RawArray.h"
 #import "OCGIEnvironmentVariable.h"
 #import "OCGIMIMEType.h"

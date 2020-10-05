@@ -210,11 +210,11 @@
 
 +(NSDictionary *) selectMultipleBy: (NSString *)name choices: (NSArray *)choices
 {
-    int *invalid;
-    int *result;
-    NSNumber **resultObjs;
-    char **choicesText;
-    NSArray *_result;
+    int *invalid = NULL;
+    int *result = NULL;
+    NSNumber **resultObjs = NULL;
+    char **choicesText = NULL;
+    NSArray *_result = nil;
 
     invalid = (int *) malloc(sizeof(int));
     if (!invalid)
@@ -229,6 +229,12 @@
     resultObjs = (NSNumber **) malloc(sizeof(NSNumber *) * choicesTotal);
     if (!resultObjs)
         goto ERROR_FUNCTION;
+
+    {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            resultObjs[i] = nil;
+    }
 
     choicesText = [choices cStringArray];
     if (!choicesText)
@@ -245,7 +251,7 @@
     }
 
     _result = [NSArray arrayWithObjects: resultObjs count: choicesTotal];
-    if (_result)
+    if (nil == _result)
         goto ERROR_FUNCTION;
 
     int _invalid = *invalid;
