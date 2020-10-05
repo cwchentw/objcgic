@@ -152,4 +152,42 @@
 
     return out;
 }
+
++(NSDictionary *) selectSingleBy: (NSString *)name \
+    choices: (NSArray *)choices defaultValue: (NSNumber *)defaultV
+{
+    int *result = (int *) malloc(sizeof(int));
+    if (!result)
+        return nil;
+
+    char **choicesText = [choices cStringArray];
+    if (!choicesText) {
+        free(result);
+        return nil;
+    }
+
+    int choicesTotal = [choices count];
+
+    cgiFormResultType status = cgiFormSelectSingle(
+	    (char *)[name cString],
+        choicesText, choicesTotal, 
+	    result, [defaultV intValue]);
+
+    int _result = *result;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
+        [NSNumber numberWithInt: _result], @"result"];
+
+    /* FIXME: Check whether any memory corruption occurs. */
+    {
+        size_t i;
+        for (i = 0; i < choicesTotal; ++i)
+            free(choicesText[i]);
+    }
+    free(choicesText);
+    free(result);
+
+    return out;
+}
 @end
