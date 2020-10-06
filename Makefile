@@ -26,8 +26,9 @@ else
 endif
 endif
 
-OBJS=NSArray+RawArray.o NSNumber+OCGIFormResultType.o \
-	OCGIHeader.o OCGICookie.o OCGIForm.o OCGIFile.o OCGISanitizer.o OCGIMain.o
+OBJS=NSArray+RawArray.o NSNumber+OCGIFormResultType.o NSNumber+OCGIEnvironmentResultType.o \
+	OCGIHeader.o OCGICookie.o OCGIEnvironmentVariable.o OCGIForm.o OCGIFile.o OCGISanitizer.o \
+	OCGIMain.o
 
 
 # Set the include path of libobjc on non-Apple platforms.
@@ -49,9 +50,11 @@ endif
 
 %.o:%.m
 ifeq ($(detected_OS),Darwin)
-	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) -fconstant-string-class=NSConstantString
+	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) \
+		-fconstant-string-class=NSConstantString
 else
-	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(OBJC_INCLUDE) -I $(GNUSTEP_INCLUDE) -fconstant-string-class=NSConstantString
+	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(OBJC_INCLUDE) -I $(GNUSTEP_INCLUDE) \
+		-fconstant-string-class=NSConstantString
 endif
 
 clean:

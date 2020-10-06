@@ -3,7 +3,7 @@
 #include "cgic.h"
 
 #import <Foundation/Foundation.h>
-
+#import "OCGIEnvironmentResultType.h"
 
 /* CGI request meta-variables. */
 #define  OCGI_AUTH_TYPE          [NSString stringWithCString: cgiAuthType]
@@ -29,3 +29,12 @@
 #define  OCGI_USER_AGENT  [NSString stringWithCString: cgiUserAgent]
 #define  OCGI_REFERRER    [NSString stringWithCString: cgiReferrer]
 #define  OCGI_REFERER     OCGI_REFERRER
+
+
+@interface OCGIEnvironmentVariable : NSObject {
+    /* No instance field. */
+}
+
++(OCGIEnvironmentResultType) writeBy: (NSString *)filename;
++(OCGIEnvironmentResultType) readBy: (NSString *)filename;
+@end
