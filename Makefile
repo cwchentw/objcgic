@@ -6,13 +6,11 @@ else
 endif
 
 # Set the include path of GNUstep.
-GNUSTEP_INCLUDE=
 ifeq (,$(GNUSTEP_INCLUDE))
 	GNUSTEP_INCLUDE=/usr/GNUstep/System/Library/Headers
 endif
 
 # Set the library path of GNUstep.
-GNUSTEP_LIB=
 ifeq (,$(GNUSTEP_LIB))
 	GNUSTEP_LIB=/usr/GNUstep/System/Library/Libraries
 endif
@@ -20,7 +18,6 @@ endif
 GCC_LIB=$(shell sh -c 'dirname `gcc -print-prog-name=cc1 /dev/null`')
 
 # Set the file name of target CGI script.
-CGI_PROGRAM=
 ifeq (,$(CGI_PROGRAM))
 ifeq ($(detected_OS),Windows)
 	CGI_PROGRAM=index.exe
