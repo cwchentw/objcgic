@@ -7,6 +7,7 @@
 #import "NSNumber+OCGIEnvironmentResultType.h"
 #import "OCGIEnvironmentVariable.h"
 #import "OCGIMIMEType.h"
+#import "OCGIHTTPStatus.h"
 #import "OCGIHeader.h"
 #import "OCGICookie.h"
 #import "OCGIForm.h"
