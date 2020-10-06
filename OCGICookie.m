@@ -11,6 +11,8 @@
     if (!result)
         return nil;
 
+    result[0] = '\0';
+
     cgiFormResultType status = \
         cgiCookieString(
             (char *)[name cString],
