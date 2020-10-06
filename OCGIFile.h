@@ -3,7 +3,7 @@
 #include "cgic.h"
 
 #import <Foundation/Foundation.h>
-
+#import "OCGIFormResultType.h"
 
 @interface OCGIFile : NSObject {
 @private
@@ -14,4 +14,5 @@
 +(NSDictionary *) contentTypeBy: (NSString *)name length: (NSNumber *)max;
 +(NSDictionary *) fileSizeBy: (NSString *)name;
 -(NSDictionary *) open: (NSString *)name;
+-(OCGIFormResultType) close;
 @end

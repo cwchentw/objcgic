@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#import "NSArray+RawArray.h"
 #import "NSNumber+OCGIFormResultType.h"
+#import "NSArray+RawArray.h"
 #import "OCGIFile.h"
 
 
@@ -107,5 +107,10 @@
     }
 
     return out;
+}
+
+-(OCGIFormResultType) close
+{
+    return cgiFormFileClose(file);
 }
 @end
