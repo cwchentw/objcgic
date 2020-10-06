@@ -1,4 +1,6 @@
+#import <Foundation/Foundation.h>
 #import "OCGIEnvironmentResultType.h"
+
 
 @implementation NSNumber (OCGIEnvironmentResultType)
 +(NSNumber *) numberWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type

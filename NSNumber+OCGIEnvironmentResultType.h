@@ -1,6 +1,5 @@
 #pragma once
 
-#import <Foundation/Foundation.h>
 #import "OCGIEnvironmentResultType.h"
 
 @interface NSNumber (OCGIEnvironmentResultType)

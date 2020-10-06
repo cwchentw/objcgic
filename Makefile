@@ -27,7 +27,7 @@ endif
 endif
 
 OBJS=NSArray+RawArray.o NSNumber+OCGIFormResultType.o NSNumber+OCGIEnvironmentResultType.o \
-	OCGIHeader.o OCGICookie.o OCGIEnvironmentVariable.o OCGIForm.o OCGIFile.o OCGISanitizer.o \
+	OCGIEnvironmentVariable.o OCGIHeader.o OCGICookie.o OCGIForm.o OCGIFile.o OCGISanitizer.o \
 	OCGIMain.o
 
 
