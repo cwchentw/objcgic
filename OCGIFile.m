@@ -57,4 +57,28 @@
 
     return out;
 }
+
++(NSDictionary *) fileSizeBy: (NSString *)name
+{
+    int *sizeP = (int *) malloc(sizeof(int));
+    if (!sizeP)
+        return nil;
+
+    cgiFormResultType status = cgiFormFileSize(
+	    (char *)[name cString], sizeP);
+
+    int _sizeP = *sizeP;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
+        [NSNumber numberWithInt: _sizeP], @"size"];
+    if (!out) {
+        free(sizeP);
+        return nil;
+    }
+
+    free(sizeP);
+
+    return out;
+}
 @end

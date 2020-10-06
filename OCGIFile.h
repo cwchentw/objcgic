@@ -11,4 +11,5 @@
 
 +(NSDictionary *) nameBy: (NSString *)name length: (NSNumber *)max;
 +(NSDictionary *) contentTypeBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) fileSizeBy: (NSString *)name;
 @end
