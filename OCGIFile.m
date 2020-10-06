@@ -81,4 +81,31 @@
 
     return out;
 }
+
+-(NSDictionary *) open: (NSString *)name
+{
+    self = [[self class] alloc];
+    if (!self)
+        return nil;
+
+    cgiFilePtr *cfpp = NULL;
+
+    cgiFormResultType status = cgiFormFileOpen(
+	    (char *)[name cString], cfpp);
+
+    if (OCGI_FORM_SUCCESS == status && cfpp)
+        file = *cfpp;
+    else
+        file = NULL;
+
+    NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithOCGIFormResultType: status], @"status",
+        self, @"fileHandle"];
+    if (!out) {
+        cgiFormFileClose(file);
+        return nil;
+    }
+
+    return out;
+}
 @end
