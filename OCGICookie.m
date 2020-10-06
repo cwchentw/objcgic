@@ -19,6 +19,10 @@
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         [NSString stringWithCString: result], @"result"];
+    if (!out) {
+        free(result);
+        return nil;
+    }
 
     free(result);
 
