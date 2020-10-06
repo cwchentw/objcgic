@@ -26,4 +26,5 @@
 +(NSDictionary *) radioBy: (NSString *)name \
     values: (NSArray *)values defaultValue: (NSNumber *)defaultV;
 +(NSDictionary *) fileNameBy: (NSString *)name length: (NSNumber *)max;
++(NSDictionary *) fileContentTypeBy: (NSString *)name length: (NSNumber *)max;
 @end
