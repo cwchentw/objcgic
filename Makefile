@@ -30,7 +30,7 @@ endif
 endif
 
 OBJS=NSArray+RawArray.o NSNumber+OCGIFormResultType.o \
-	OCGIHeader.o OCGICookie.o OCGIForm.o OCGISanitizer.o OCGIMain.o
+	OCGIHeader.o OCGICookie.o OCGIForm.o OCGIFile.o OCGISanitizer.o OCGIMain.o
 
 
 # Set the include path of libobjc on non-Apple platforms.

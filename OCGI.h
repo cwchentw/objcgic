@@ -8,4 +8,5 @@
 #import "OCGIHeader.h"
 #import "OCGICookie.h"
 #import "OCGIForm.h"
+#import "OCGIFile.h"
 #import "OCGISanitizer.h"
