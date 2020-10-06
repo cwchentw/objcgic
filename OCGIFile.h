@@ -15,4 +15,5 @@
 +(NSDictionary *) fileSizeBy: (NSString *)name;
 -(NSDictionary *) open: (NSString *)name;
 -(OCGIFormResultType) close;
+-(NSDictionary *) readWithSize: (NSNumber *)bufferSize;
 @end
