@@ -308,15 +308,16 @@ ERROR_FUNCTION:
         [NSNumber numberWithOCGIFormResultType: status], @"status",
         _result, @"result",
         [NSNumber numberWithInt: _invalid], @"invalid"];
+    if (!out)
+        goto ERROR_FUNCTION;
 
-    if (choicesText) {
+    {
         /* FIXME: Check whether any memory corruption. */
         size_t i;
         for (i = 0; i < choicesTotal; ++i)
             free(choicesText[i]);
-
-        free(choicesText);
     }
+    free(choicesText);
 
     {
         size_t i;
