@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#include <stdio.h>
 #import "OCGIHeader.h"
 
 @implementation OCGIHeader
@@ -9,14 +10,23 @@
 
 +(void) status: (NSNumber *)status message: (NSString *)statusMessage
 {
-    cgiHeaderStatus(
+    /* Originally, cgic append two lines of newline to
+        the output of HTTP status code. We may use
+        multiple header informations in a response;
+        therefore, we write our own code. */
+    fprintf(stdout, "Status: %d %s\n",
         [status intValue],
         (char *)[statusMessage cString]);
 }
 
 +(void) contentType: (NSString *)mimeType
 {
-    cgiHeaderContentType((char *)[mimeType cString]);
+    /* Originally, cgic append two lines of newline to
+        the output of HTTP status code. We may use
+        multiple header informations in a response;
+        therefore, we write our own code. */
+    fprintf(stdout, "Content-type: %s\n",
+        (char *)[mimeType cString]);
 }
 
 +(void) ok
