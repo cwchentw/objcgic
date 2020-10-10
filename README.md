@@ -78,6 +78,8 @@ Pending.
 
 The version of [cgic](https://github.com/boutell/cgic) snapshot in this repo is `2.08`.
 
+Originally, cgic append two lines of newline to the header of a HTTP response. We may use multiple header informations in a response; therefore, we write our own `+status:message:` and `+contentType:` of `OCGIHeader` class. Now, the two messages only render one line of newline to standard output.
+
 ## Copyright
 
 Copyright (c) 2020, Michael Chen. Licensed under MIT, the same license as cgic itself.

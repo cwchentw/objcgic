@@ -11,9 +11,9 @@
 +(void) status: (NSNumber *)status message: (NSString *)statusMessage
 {
     /* Originally, cgic append two lines of newline to
-        the output of HTTP status code. We may use
-        multiple header informations in a response;
-        therefore, we write our own code. */
+        the output of the header of a HTTP response.
+        We may use multiple header informations in a
+        response; therefore, we write our own code. */
     fprintf(stdout, "Status: %d %s\n",
         [status intValue],
         (char *)[statusMessage cString]);
@@ -22,9 +22,9 @@
 +(void) contentType: (NSString *)mimeType
 {
     /* Originally, cgic append two lines of newline to
-        the output of HTTP status code. We may use
-        multiple header informations in a response;
-        therefore, we write our own code. */
+        the output of the header of a HTTP response.
+        We may use multiple header informations in a
+        response; therefore, we write our own code. */
     fprintf(stdout, "Content-type: %s\n",
         (char *)[mimeType cString]);
 }
