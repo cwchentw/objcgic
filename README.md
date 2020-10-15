@@ -7,9 +7,10 @@ objcgic is still experimental. The API may change without warning. Don't use it 
 ## System Requirements
 
 * Clang or GCC with Objective-C support
-* GNUstep
+* Cocoa or GNUstep
+* libobjc2 (Clang only)
 
-It should work on Cocoa as well, though untested.
+Test against GNUStep on openSUSE Leap 15.2. It should work on MacOS as well, though untested.
 
 [cgic](https://github.com/boutell/cgic) itself is not needed because the repo bundles its snapshot.
 
