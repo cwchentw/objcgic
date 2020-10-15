@@ -3,7 +3,7 @@
 #import "OCGIFormResultType.h"
 
 @interface NSNumber (OCGIFormResultType)
-+(NSNumber *) numberWithOCGIFormResultType: (OCGIFormResultType)type;
--(NSNumber *) initWithOCGIFormResultType: (OCGIFormResultType)type;
++(instancetype) numberWithOCGIFormResultType: (OCGIFormResultType)type;
+-(instancetype) initWithOCGIFormResultType: (OCGIFormResultType)type;
 -(OCGIFormResultType) ocgiFormResultType;
 @end

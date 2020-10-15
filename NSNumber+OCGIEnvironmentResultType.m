@@ -3,12 +3,12 @@
 
 
 @implementation NSNumber (OCGIEnvironmentResultType)
-+(NSNumber *) numberWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type
++(instancetype) numberWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type
 {
     return [NSNumber numberWithInt: type];
 }
 
--(NSNumber *) initWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type
+-(instancetype) initWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type
 {
     return [self initWithInt: type];
 }

@@ -3,12 +3,12 @@
 
 
 @implementation NSNumber (OCGIFormResultType)
-+(NSNumber *) numberWithOCGIFormResultType: (OCGIFormResultType)type
++(instancetype) numberWithOCGIFormResultType: (OCGIFormResultType)type
 {
     return [NSNumber numberWithInt: type];
 }
 
--(NSNumber *) initWithOCGIFormResultType: (OCGIFormResultType)type
+-(instancetype) initWithOCGIFormResultType: (OCGIFormResultType)type
 {
     return [self initWithInt: type];
 }
