@@ -8,7 +8,6 @@ objcgic is still experimental. The API may change without warning. Don't use it 
 
 * Clang or GCC with Objective-C support
 * Cocoa or GNUstep
-* libobjc2 (Clang only)
 
 Test against GNUStep on openSUSE Leap 15.2. It should work on MacOS as well, though untested.
 
@@ -80,6 +79,8 @@ Pending.
 The version of [cgic](https://github.com/boutell/cgic) snapshot in this repo is `2.08`.
 
 Originally, cgic append two lines of newline to the header of a HTTP response. We may use multiple header informations in a response; therefore, we write our own `+status:message:` and `+contentType:` of `OCGIHeader` class. Now, the two messages only render one line of newline to standard output.
+
+For better compatibility between libobjc and GNUstep, we use the libobjc of GCC on non-Apple platforms.
 
 ## Copyright
 

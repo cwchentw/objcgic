@@ -15,6 +15,8 @@ ifeq (,$(GNUSTEP_LIB))
 	GNUSTEP_LIB=/usr/GNUstep/System/Library/Libraries
 endif
 
+GCC_LIB=$(shell sh -c 'dirname `gcc -print-prog-name=cc1 /dev/null`')
+
 # Set the file name of target CGI script.
 ifeq (,$(CGI_PROGRAM))
 ifeq ($(detected_OS),Windows)
@@ -29,17 +31,18 @@ OBJS=NSArray+RawArray.o NSNumber+OCGIFormResultType.o NSNumber+OCGIEnvironmentRe
 	OCGIMain.o
 
 
+# Set the include path of libobjc on non-Apple platforms.
+OBJC_INCLUDE := -I $(GCC_LIB)/include
+
 .PHONY: all clean
 
 all: cgi
 
 cgi: cgic.o $(OBJS)
 ifeq ($(detected_OS),Darwin)
-	$(CC) -o $(CGI_PROGRAM) cgic.o $(OBJS) \
-		-lobjc -framework Foundation
+	$(CC) -o $(CGI_PROGRAM) cgic.o $(OBJS) -lobjc -framework Foundation
 else
-	$(CC) -o $(CGI_PROGRAM) cgic.o $(OBJS) \
-		-lobjc -lgnustep-base -L $(GNUSTEP_LIB)
+	$(CC) -o $(CGI_PROGRAM) cgic.o $(OBJS) -lobjc -lgnustep-base -L $(GNUSTEP_LIB)
 endif
 
 %.o:%.c
@@ -50,7 +53,7 @@ ifeq ($(detected_OS),Darwin)
 	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) \
 		-fconstant-string-class=NSConstantString
 else
-	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) -I $(GNUSTEP_INCLUDE) \
+	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(OBJC_INCLUDE) -I $(GNUSTEP_INCLUDE) \
 		-fconstant-string-class=NSConstantString
 endif
 
