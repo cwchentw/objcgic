@@ -1,11 +1,12 @@
 #import <Foundation/Foundation.h>
 #include <stdio.h>
+#import "OCGIEncoding.h"
 #import "OCGIHeader.h"
 
 @implementation OCGIHeader
 +(void) location: (NSString *)redirectUrl
 {
-    cgiHeaderLocation((char *)[redirectUrl cStringUsingEncoding:NSUTF8StringEncoding]);
+    cgiHeaderLocation((char *)[redirectUrl cStringUsingEncoding:OCGI_ENCODING]);
 }
 
 +(void) status: (NSNumber *)status message: (NSString *)statusMessage
@@ -16,7 +17,7 @@
         response; therefore, we write our own code. */
     fprintf(stdout, "Status: %d %s\n",
         [status intValue],
-        (char *)[statusMessage cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[statusMessage cStringUsingEncoding:OCGI_ENCODING]);
 }
 
 +(void) contentType: (NSString *)mimeType
@@ -26,7 +27,7 @@
         We may use multiple header informations in a
         response; therefore, we write our own code. */
     fprintf(stdout, "Content-type: %s\n",
-        (char *)[mimeType cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[mimeType cStringUsingEncoding:OCGI_ENCODING]);
 }
 
 +(void) ok

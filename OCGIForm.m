@@ -2,6 +2,7 @@
 
 #import "NSArray+RawArray.h"
 #import "NSNumber+OCGIFormResultType.h"
+#import "OCGIEncoding.h"
 #import "OCGIForm.h"
 
 
@@ -19,13 +20,13 @@
 
     cgiFormResultType status = \
         cgiFormString(
-            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType:status], @"status",
-        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        [NSString stringWithCString:result encoding:OCGI_ENCODING], @"result",
         nil];
     if (!out) {
         free(result);
@@ -50,13 +51,13 @@
 
     cgiFormResultType status = \
         cgiFormStringNoNewlines(
-            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType:status], @"status",
-        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        [NSString stringWithCString:result encoding:OCGI_ENCODING], @"result",
         nil];
     if (!out) {
         free(result);
@@ -76,7 +77,7 @@
 
     cgiFormResultType status = \
         cgiFormStringSpaceNeeded(
-	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result);
 
     int _result = *result;
@@ -103,7 +104,7 @@
 
     cgiFormResultType status = \
         cgiFormInteger(
-	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             [defaultV intValue]);
 
@@ -132,7 +133,7 @@
 
     cgiFormResultType status = \
         cgiFormIntegerBounded(
-	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             [min intValue],
             [max intValue],
@@ -162,7 +163,7 @@
 
     cgiFormResultType status = \
         cgiFormDouble(
-	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             [defaultV doubleValue]);
 
@@ -191,7 +192,7 @@
 
     cgiFormResultType status = \
         cgiFormDoubleBounded(
-	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             [min doubleValue],
             [max doubleValue],
@@ -224,14 +225,14 @@
     if (!result)
         goto ERROR_FUNCTION;
 
-    choicesText = [choices cStringArray];
+    choicesText = [choices cStringArrayUsingEncoding:OCGI_ENCODING];
     if (!choicesText)
         goto ERROR_FUNCTION;
 
     int choicesTotal = [choices count];
 
     cgiFormResultType status = cgiFormSelectSingle(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING],
         choicesText, choicesTotal, 
 	    result, [defaultV intValue]);
 
@@ -298,12 +299,12 @@ ERROR_FUNCTION:
             resultObjs[i] = nil;
     }
 
-    choicesText = [choices cStringArray];
+    choicesText = [choices cStringArrayUsingEncoding:OCGI_ENCODING];
     if (!choicesText)
         goto ERROR_FUNCTION;
 
     cgiFormResultType status = cgiFormSelectMultiple(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING],
         choicesText, choicesTotal, result, invalid);
 
     {
@@ -379,7 +380,7 @@ ERROR_FUNCTION:
 +(NSNumber *) checoboxSingleBy: (NSString *)name
 {
     cgiFormResultType status = cgiFormCheckboxSingle(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding]);
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING]);
 
     return [NSNumber numberWithOCGIFormResultType: status];
 }

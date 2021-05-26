@@ -2,6 +2,7 @@
 
 #import "NSNumber+OCGIFormResultType.h"
 #import "NSArray+RawArray.h"
+#import "OCGIEncoding.h"
 #import "OCGIFile.h"
 
 
@@ -17,11 +18,11 @@
     result[0] = '\0';
 
     cgiFormResultType status = cgiFormFileName(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], result, _max);
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING], result, _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType:status], @"status",
-        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        [NSString stringWithCString:result encoding:OCGI_ENCODING], @"result",
         nil];
     if (!out) {
         free(result);
@@ -44,11 +45,11 @@
     result[0] = '\0';
 
     cgiFormResultType status = cgiFormFileContentType(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], result, _max);
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING], result, _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType:status], @"status",
-        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        [NSString stringWithCString:result encoding:OCGI_ENCODING], @"result",
         nil];
     if (!out) {
         free(result);
@@ -67,7 +68,7 @@
         return nil;
 
     cgiFormResultType status = cgiFormFileSize(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], sizeP);
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING], sizeP);
 
     int _sizeP = *sizeP;
 
@@ -94,7 +95,7 @@
     cgiFilePtr *cfpp = NULL;
 
     cgiFormResultType status = cgiFormFileOpen(
-	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], cfpp);
+	    (char *)[name cStringUsingEncoding:OCGI_ENCODING], cfpp);
 
     if (OCGI_FORM_SUCCESS == status && cfpp)
         file = *cfpp;
@@ -140,7 +141,7 @@
     cgiFormResultType status = cgiFormFileRead(
 	    file, buffer, _bufferSize, gotP);
 
-    _buffer = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    _buffer = [NSString stringWithCString:buffer encoding:OCGI_ENCODING];
     if (!_buffer)
         goto ERROE_FUNCTION;
 

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "NSNumber+OCGIFormResultType.h"
+#import "OCGIEncoding.h"
 #import "OCGICookie.h"
 
 
@@ -15,12 +16,12 @@
 
     cgiFormResultType status = \
         cgiCookieString(
-            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result, [max intValue]);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithOCGIFormResultType:status], @"status",
-        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        [NSString stringWithCString:result encoding:OCGI_ENCODING], @"result",
         nil];
     if (!out) {
         free(result);
@@ -40,7 +41,7 @@
 
     cgiFormResultType status = \
         cgiCookieInteger(
-            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            (char *)[name cStringUsingEncoding:OCGI_ENCODING],
             result,
             [defaultV intValue]);
 
@@ -65,11 +66,11 @@
     options:(OCGI_COOKIE_OPTIONS) options
 {
     cgiHeaderCookieSet(
-        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
-        (char *)[value cStringUsingEncoding:NSUTF8StringEncoding],
+        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
+        (char *)[value cStringUsingEncoding:OCGI_ENCODING],
 	    [secondsToLive intValue],
-        (char *)[path cStringUsingEncoding:NSUTF8StringEncoding],
-        (char *)[domain cStringUsingEncoding:NSUTF8StringEncoding],
+        (char *)[path cStringUsingEncoding:OCGI_ENCODING],
+        (char *)[domain cStringUsingEncoding:OCGI_ENCODING],
         options);
 }
 
@@ -78,11 +79,11 @@
     path:(NSString *)path domain:(NSString *)domain
 {
     cgiHeaderCookieSetString(
-        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
-        (char *)[value cStringUsingEncoding:NSUTF8StringEncoding],
+        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
+        (char *)[value cStringUsingEncoding:OCGI_ENCODING],
 	    [secondsToLive intValue],
-        (char *)[path cStringUsingEncoding:NSUTF8StringEncoding],
-        (char *)[domain cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[path cStringUsingEncoding:OCGI_ENCODING],
+        (char *)[domain cStringUsingEncoding:OCGI_ENCODING]);
 }
 
 +(void) setIntegerBy:(NSString *)name to:(NSNumber *)value \
@@ -90,10 +91,10 @@
     path:(NSString *)path domain:(NSString *)domain
 {
     cgiHeaderCookieSetInteger(
-        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+        (char *)[name cStringUsingEncoding:OCGI_ENCODING],
         [value intValue],
 	    [secondsToLive intValue],
-        (char *)[path cStringUsingEncoding:NSUTF8StringEncoding],
-        (char *)[domain cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[path cStringUsingEncoding:OCGI_ENCODING],
+        (char *)[domain cStringUsingEncoding:OCGI_ENCODING]);
 }
 @end

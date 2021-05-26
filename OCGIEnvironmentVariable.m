@@ -4,12 +4,12 @@
 +(OCGIEnvironmentResultType) writeBy:(NSString *)filename
 {
     return cgiWriteEnvironment(
-        (char *)[filename cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[filename cStringUsingEncoding:OCGI_ENCODING]);
 }
 
 +(OCGIEnvironmentResultType) readBy:(NSString *)filename;
 {
     return cgiReadEnvironment(
-        (char *)[filename cStringUsingEncoding:NSUTF8StringEncoding]);
+        (char *)[filename cStringUsingEncoding:OCGI_ENCODING]);
 }
 @end

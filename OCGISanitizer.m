@@ -1,10 +1,11 @@
+#import "OCGIEncoding.h"
 #import "OCGISanitizer.h"
 
 @implementation OCGISanitizer
 +(OCGIFormResultType) escapeHTML: (NSString *)s
 {
     cgiFormResultType status = \
-        cgiHtmlEscape([s cStringUsingEncoding:NSUTF8StringEncoding]);
+        cgiHtmlEscape([s cStringUsingEncoding:OCGI_ENCODING]);
 
     return status;
 }
@@ -13,7 +14,7 @@
 {
     cgiFormResultType status = \
         cgiHtmlEscapeData(
-            [data cStringUsingEncoding:NSUTF8StringEncoding],
+            [data cStringUsingEncoding:OCGI_ENCODING],
             [len intValue]);
 
     return status;
@@ -22,7 +23,7 @@
 +(OCGIFormResultType) escapeValue: (NSString *)s
 {
     cgiFormResultType status = \
-        cgiValueEscape([s cStringUsingEncoding:NSUTF8StringEncoding]);
+        cgiValueEscape([s cStringUsingEncoding:OCGI_ENCODING]);
 
     return status;
 }
@@ -31,7 +32,7 @@
 {
     cgiFormResultType status = \
         cgiValueEscapeData(
-            [data cStringUsingEncoding:NSUTF8StringEncoding],
+            [data cStringUsingEncoding:OCGI_ENCODING],
             [len intValue]);
 
     return status;
