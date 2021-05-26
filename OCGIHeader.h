@@ -10,9 +10,9 @@
     /* No instance field. */
 }
 
-+(void) location: (NSString *)redirectUrl;
-+(void) status: (NSNumber *)status message: (NSString *)statusMessage;
-+(void) contentType: (NSString *)mimeType;
++(void) location:(NSString *)redirectUrl;
++(void) status:(NSNumber *)status message:(NSString *)statusMessage;
++(void) contentType:(NSString *)mimeType;
 
 +(void) ok;
 +(void) notFound;

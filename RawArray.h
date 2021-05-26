@@ -1,5 +1,8 @@
 #pragma once
 
+#import <Foundation/Foundation.h>
+
+
 @protocol RawArray
--(char **) cStringArray;
+-(char **) cStringArrayUsingEncoding:(NSStringEncoding)encoding;
 @end

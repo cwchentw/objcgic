@@ -7,7 +7,7 @@
 
 
 @implementation OCGIForm
-+(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) stringBy:(NSString *)name length:(NSNumber *)max
 {
     int _max = [max intValue];
 
@@ -38,7 +38,7 @@
     return out;
 }
 
-+(NSDictionary *) stringNoNewlinesBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) stringNoNewlinesBy:(NSString *)name length:(NSNumber *)max
 {
     int _max = [max intValue];
 
@@ -69,7 +69,7 @@
     return out;
 }
 
-+(NSDictionary *) stringSpaceNeededBy: (NSString *)name
++(NSDictionary *) stringSpaceNeededBy:(NSString *)name
 {
     int *result = (int *) malloc(sizeof(int));
     if (!result)
@@ -96,7 +96,7 @@
     return out;
 }
 
-+(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV
++(NSDictionary *) integerBy:(NSString *)name defaultValue:(NSNumber *)defaultV
 {
     int *result = (int *) malloc(sizeof(int));
     if (!result)
@@ -124,8 +124,8 @@
     return out;
 }
 
-+(NSDictionary *) integerBoundedBy: (NSString *)name \
-    min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
++(NSDictionary *) integerBoundedBy:(NSString *)name \
+    min:(NSNumber *)min max:(NSNumber *)max defaultValue:(NSNumber *)defaultV
 {
     int *result = (int *) malloc(sizeof(int));
     if (!result)
@@ -155,7 +155,7 @@
     return out;
 }
 
-+(NSDictionary *) doubleBy: (NSString *)name defaultValue: (NSNumber *)defaultV
++(NSDictionary *) doubleBy:(NSString *)name defaultValue:(NSNumber *)defaultV
 {
     double *result = (double *) malloc(sizeof(double));
     if (!result)
@@ -183,8 +183,8 @@
     return out;
 }
 
-+(NSDictionary *) doubleBoundedBy: (NSString *)name \
-    min: (NSNumber *)min max: (NSNumber *)max defaultValue: (NSNumber *)defaultV
++(NSDictionary *) doubleBoundedBy:(NSString *)name \
+    min:(NSNumber *)min max:(NSNumber *)max defaultValue:(NSNumber *)defaultV
 {
     double *result = (double *) malloc(sizeof(double));
     if (!result)
@@ -214,8 +214,8 @@
     return out;
 }
 
-+(NSDictionary *) selectSingleBy: (NSString *)name \
-    choices: (NSArray *)choices defaultValue: (NSNumber *)defaultV
++(NSDictionary *) selectSingleBy:(NSString *)name \
+    choices:(NSArray *)choices defaultValue:(NSNumber *)defaultV
 {
     int *result = NULL;
     char ** choicesText = NULL;
@@ -271,7 +271,7 @@ ERROR_FUNCTION:
     return nil;
 }
 
-+(NSDictionary *) selectMultipleBy: (NSString *)name choices: (NSArray *)choices
++(NSDictionary *) selectMultipleBy:(NSString *)name choices:(NSArray *)choices
 {
     int *invalid = NULL;
     int *result = NULL;
@@ -377,7 +377,7 @@ ERROR_FUNCTION:
     return nil;
 }
 
-+(NSNumber *) checoboxSingleBy: (NSString *)name
++(NSNumber *) checoboxSingleBy:(NSString *)name
 {
     cgiFormResultType status = cgiFormCheckboxSingle(
 	    (char *)[name cStringUsingEncoding:OCGI_ENCODING]);
@@ -385,7 +385,7 @@ ERROR_FUNCTION:
     return [NSNumber numberWithOCGIFormResultType: status];
 }
 
-+(NSDictionary *) checkboxMultipleBy: (NSString *)name choices: (NSArray *)choices
++(NSDictionary *) checkboxMultipleBy:(NSString *)name choices:(NSArray *)choices
 {
     /* We peeked the source of cgic.c, recognizing that the implementation of
        `cgiFormCheckboxMultiple` is identical to `cgiFormSelectMultiple`.
@@ -393,8 +393,8 @@ ERROR_FUNCTION:
     return [self selectMultipleBy: name choices: choices];
 }
 
-+(NSDictionary *) radioBy: (NSString *)name \
-    values: (NSArray *)values defaultValue: (NSNumber *)defaultV
++(NSDictionary *) radioBy:(NSString *)name \
+    values:(NSArray *)values defaultValue:(NSNumber *)defaultV
 {
     /* We peeked the source of cgic.c, recognizing that the implementation of
        `cgiFormRadio` is identical to `cgiFormSelectSingle`.

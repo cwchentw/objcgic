@@ -2,7 +2,7 @@
 #import "OCGISanitizer.h"
 
 @implementation OCGISanitizer
-+(OCGIFormResultType) escapeHTML: (NSString *)s
++(OCGIFormResultType) escapeHTML:(NSString *)s
 {
     cgiFormResultType status = \
         cgiHtmlEscape([s cStringUsingEncoding:OCGI_ENCODING]);
@@ -10,7 +10,7 @@
     return status;
 }
 
-+(OCGIFormResultType) escapeHTML: (NSString *)data length: (NSNumber *)len
++(OCGIFormResultType) escapeHTML:(NSString *)data length:(NSNumber *)len
 {
     cgiFormResultType status = \
         cgiHtmlEscapeData(
@@ -20,7 +20,7 @@
     return status;
 }
 
-+(OCGIFormResultType) escapeValue: (NSString *)s
++(OCGIFormResultType) escapeValue:(NSString *)s
 {
     cgiFormResultType status = \
         cgiValueEscape([s cStringUsingEncoding:OCGI_ENCODING]);
@@ -28,7 +28,7 @@
     return status;
 }
 
-+(OCGIFormResultType) eacapeValue: (NSString *)data length: (NSNumber *)len
++(OCGIFormResultType) eacapeValue:(NSString *)data length:(NSNumber *)len
 {
     cgiFormResultType status = \
         cgiValueEscapeData(

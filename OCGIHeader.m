@@ -4,12 +4,12 @@
 #import "OCGIHeader.h"
 
 @implementation OCGIHeader
-+(void) location: (NSString *)redirectUrl
++(void) location:(NSString *)redirectUrl
 {
     cgiHeaderLocation((char *)[redirectUrl cStringUsingEncoding:OCGI_ENCODING]);
 }
 
-+(void) status: (NSNumber *)status message: (NSString *)statusMessage
++(void) status:(NSNumber *)status message:(NSString *)statusMessage
 {
     /* Originally, cgic append two lines of newline to
         the output of the header of a HTTP response.
@@ -20,7 +20,7 @@
         (char *)[statusMessage cStringUsingEncoding:OCGI_ENCODING]);
 }
 
-+(void) contentType: (NSString *)mimeType
++(void) contentType:(NSString *)mimeType
 {
     /* Originally, cgic append two lines of newline to
         the output of the header of a HTTP response.
