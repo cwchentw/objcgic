@@ -9,7 +9,7 @@ objcgic is still experimental. The API may change without warning. Don't use it 
 * Clang or GCC with Objective-C support
 * Cocoa or GNUstep
 
-Test against GNUStep on openSUSE Leap 15.2. It should work on MacOS as well, though untested.
+Tested against GNUStep on openSUSE Leap 15.2. It should work on MacOS as well.
 
 [cgic](https://github.com/boutell/cgic) itself is not needed because the repo bundles its snapshot.
 
@@ -69,9 +69,9 @@ Git will merge updated code automatically for you, which should not require any 
 ## Project Parameters
 
 * `CGI_PROGRAM`: The name of the CGI program, default to *index.cgi*
+* `CGI_ENCODING`: The encoding of the CGI program, default to `NSUTF8StringEncoding`
 * `GNUSTEP_INCLUDE`: The path of GNUstep headers, default to */usr/GNUstep/System/Library/Headers*
 * `GNUSTEP_LIB`: The path of GNUstep libraries, default to */usr/GNUstep/System/Library/Libraries*
-* `CGI_ENCODING`: The encoding of the CGI program, default to `NSUTF8StringEncoding`
 
 ## Example
 
