@@ -66,6 +66,13 @@ $ git pull https://github.com/cwchentw/objcgic.git
 
 Git will merge updated code automatically for you, which should not require any manual intervention. If any conflict bewteen code occurs, fix it by yourself.
 
+## Project Parameters
+
+* `CGI_PROGRAM`: The name of the CGI program, default to *index.cgi*
+* `GNUSTEP_INCLUDE`: The path of GNUstep headers, default to */usr/GNUstep/System/Library/Headers*
+* `GNUSTEP_LIB`: The path of GNUstep libraries, default to */usr/GNUstep/System/Library/Libraries*
+* `CGI_ENCODING`: The encoding of the CGI program, default to `NSUTF8StringEncoding`
+
 ## Example
 
 See [cgi-hello-objcgic](https://github.com/cwchentw/cgi-hello-objcgic).

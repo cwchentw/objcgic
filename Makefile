@@ -15,6 +15,11 @@ ifeq (,$(GNUSTEP_LIB))
 	GNUSTEP_LIB=/usr/GNUstep/System/Library/Libraries
 endif
 
+# Set the encoding of the CGI script.
+ifneq (,$(CGI_ENCODING))
+	ENCODING=-DOCGI_ENCODING=$(CGI_ENCODING)
+endif
+
 GCC_LIB=$(shell sh -c 'dirname `gcc -print-prog-name=cc1 /dev/null`')
 
 # Set the file name of target CGI script.
@@ -50,10 +55,11 @@ endif
 
 %.o:%.m
 ifeq ($(detected_OS),Darwin)
-	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) \
+	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(ENCODING) \
 		-fconstant-string-class=NSConstantString
 else
-	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(OBJC_INCLUDE) -I $(GNUSTEP_INCLUDE) \
+	$(CC) -std=c11 -c $< -o $@ $(CFLAGS) $(ENCODING) \
+		$(OBJC_INCLUDE) -I $(GNUSTEP_INCLUDE) \
 		-fconstant-string-class=NSConstantString
 endif
 
