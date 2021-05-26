@@ -6,7 +6,7 @@
 
 
 @implementation OCGIFile
-+(NSDictionary *) nameBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) nameBy:(NSString *)name length:(NSNumber *)max
 {
     int _max = [max intValue];
 
@@ -17,11 +17,12 @@
     result[0] = '\0';
 
     cgiFormResultType status = cgiFormFileName(
-	    (char *)[name cString], result, _max);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], result, _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSString stringWithCString: result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -32,7 +33,7 @@
     return out;
 }
 
-+(NSDictionary *) contentTypeBy: (NSString *)name length: (NSNumber *)max
++(NSDictionary *) contentTypeBy:(NSString *)name length:(NSNumber *)max
 {
     int _max = [max intValue];
 
@@ -43,11 +44,12 @@
     result[0] = '\0';
 
     cgiFormResultType status = cgiFormFileContentType(
-	    (char *)[name cString], result, _max);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], result, _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSString stringWithCString: result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -58,20 +60,21 @@
     return out;
 }
 
-+(NSDictionary *) fileSizeBy: (NSString *)name
++(NSDictionary *) fileSizeBy:(NSString *)name
 {
     int *sizeP = (int *) malloc(sizeof(int));
     if (!sizeP)
         return nil;
 
     cgiFormResultType status = cgiFormFileSize(
-	    (char *)[name cString], sizeP);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], sizeP);
 
     int _sizeP = *sizeP;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: _sizeP], @"size"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithInt:_sizeP], @"size",
+        nil];
     if (!out) {
         free(sizeP);
         return nil;
@@ -82,7 +85,7 @@
     return out;
 }
 
--(NSDictionary *) open: (NSString *)name
+-(NSDictionary *) open:(NSString *)name
 {
     self = [[self class] alloc];
     if (!self)
@@ -91,7 +94,7 @@
     cgiFilePtr *cfpp = NULL;
 
     cgiFormResultType status = cgiFormFileOpen(
-	    (char *)[name cString], cfpp);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding], cfpp);
 
     if (OCGI_FORM_SUCCESS == status && cfpp)
         file = *cfpp;
@@ -99,8 +102,9 @@
         file = NULL;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        self, @"fileHandle"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        self, @"fileHandle",
+        nil];
     if (!out) {
         cgiFormFileClose(file);
         return nil;
@@ -114,7 +118,7 @@
     return cgiFormFileClose(file);
 }
 
--(NSDictionary *) readWithSize: (NSNumber *)bufferSize
+-(NSDictionary *) readWithSize:(NSNumber *)bufferSize
 {
     int _bufferSize = [bufferSize intValue];
 
@@ -136,15 +140,17 @@
     cgiFormResultType status = cgiFormFileRead(
 	    file, buffer, _bufferSize, gotP);
 
-    _buffer = [NSString stringWithCString: buffer];
+    _buffer = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
     if (!_buffer)
         goto ERROE_FUNCTION;
 
     int _gotP = *gotP;
 
     out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        _buffer, @"buffer", _gotP, @"return"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        _buffer, @"buffer",
+        _gotP, @"return",
+        nil];
     if (!out)
         goto ERROE_FUNCTION;
 

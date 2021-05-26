@@ -17,8 +17,8 @@
         size_t i;
         for (i = 0; i < [self count]; ++i)
             arr[i] = \
-                (char *)[[self objectAtIndex: i]
-                    cString];
+                (char *)[[self objectAtIndex:i]
+                    cStringUsingEncoding:NSUTF8StringEncoding];
     }
 
     return arr;

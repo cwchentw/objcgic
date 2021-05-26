@@ -5,7 +5,7 @@
 @implementation OCGIHeader
 +(void) location: (NSString *)redirectUrl
 {
-    cgiHeaderLocation((char *)[redirectUrl cString]);
+    cgiHeaderLocation((char *)[redirectUrl cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 +(void) status: (NSNumber *)status message: (NSString *)statusMessage
@@ -16,7 +16,7 @@
         response; therefore, we write our own code. */
     fprintf(stdout, "Status: %d %s\n",
         [status intValue],
-        (char *)[statusMessage cString]);
+        (char *)[statusMessage cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 +(void) contentType: (NSString *)mimeType
@@ -26,7 +26,7 @@
         We may use multiple header informations in a
         response; therefore, we write our own code. */
     fprintf(stdout, "Content-type: %s\n",
-        (char *)[mimeType cString]);
+        (char *)[mimeType cStringUsingEncoding:NSUTF8StringEncoding]);
 }
 
 +(void) ok

@@ -10,10 +10,10 @@
     cgiFilePtr file;
 }
 
-+(NSDictionary *) nameBy: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) contentTypeBy: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) fileSizeBy: (NSString *)name;
--(NSDictionary *) open: (NSString *)name;
++(NSDictionary *) nameBy:(NSString *)name length:(NSNumber *)max;
++(NSDictionary *) contentTypeBy:(NSString *)name length:(NSNumber *)max;
++(NSDictionary *) fileSizeBy:(NSString *)name;
+-(NSDictionary *) open:(NSString *)name;
 -(OCGIFormResultType) close;
--(NSDictionary *) readWithSize: (NSNumber *)bufferSize;
+-(NSDictionary *) readWithSize:(NSNumber *)bufferSize;
 @end

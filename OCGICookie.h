@@ -16,16 +16,16 @@
     /* No instance field. */
 }
 
-+(NSDictionary *) stringBy: (NSString *)name length: (NSNumber *)max;
-+(NSDictionary *) integerBy: (NSString *)name defaultValue: (NSNumber *)defaultV;
-+(void) setStringBy: (NSString *)name to: (NSString *)value \
-    toLive: (NSNumber *)secondsToLive \
-    path: (NSString *)path domain: (NSString *)domain \
-    options: (OCGI_COOKIE_OPTIONS)options;
-+(void) setStringBy: (NSString *)name to: (NSString *)value \
-    toLive: (NSNumber *)secondsToLive \
-    path: (NSString *)path domain: (NSString *)domain;
-+(void) setIntegerBy: (NSString *)name to: (NSNumber *)value \
-    toLive: (NSNumber *)secondsToLive \
-    path: (NSString *)path domain: (NSString *)domain;
++(NSDictionary *) stringBy:(NSString *)name length:(NSNumber *)max;
++(NSDictionary *) integerBy:(NSString *)name defaultValue:(NSNumber *)defaultV;
++(void) setStringBy:(NSString *)name to:(NSString *)value \
+    toLive:(NSNumber *)secondsToLive \
+    path:(NSString *)path domain:(NSString *)domain \
+    options:(OCGI_COOKIE_OPTIONS)options;
++(void) setStringBy:(NSString *)name to:(NSString *)value \
+    toLive:(NSNumber *)secondsToLive \
+    path:(NSString *)path domain:(NSString *)domain;
++(void) setIntegerBy:(NSString *)name to:(NSNumber *)value \
+    toLive:(NSNumber *)secondsToLive \
+    path:(NSString *)path domain:(NSString *)domain;
 @end

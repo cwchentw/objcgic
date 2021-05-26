@@ -14,7 +14,7 @@
 
 
 @protocol OCGIEnvironmentResultType
-+(NSNumber *) numberWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type;
--(NSNumber *) initWithOCGIEnvironmentResultType: (OCGIEnvironmentResultType)type;
++(NSNumber *) numberWithOCGIEnvironmentResultType:(OCGIEnvironmentResultType)type;
+-(NSNumber *) initWithOCGIEnvironmentResultType:(OCGIEnvironmentResultType)type;
 -(OCGIEnvironmentResultType) ocgiEnvironmentResultType;
 @end

@@ -4,7 +4,7 @@
 +(OCGIFormResultType) escapeHTML: (NSString *)s
 {
     cgiFormResultType status = \
-        cgiHtmlEscape([s cString]);
+        cgiHtmlEscape([s cStringUsingEncoding:NSUTF8StringEncoding]);
 
     return status;
 }
@@ -13,7 +13,7 @@
 {
     cgiFormResultType status = \
         cgiHtmlEscapeData(
-            [data cString],
+            [data cStringUsingEncoding:NSUTF8StringEncoding],
             [len intValue]);
 
     return status;
@@ -22,7 +22,7 @@
 +(OCGIFormResultType) escapeValue: (NSString *)s
 {
     cgiFormResultType status = \
-        cgiValueEscape([s cString]);
+        cgiValueEscape([s cStringUsingEncoding:NSUTF8StringEncoding]);
 
     return status;
 }
@@ -31,7 +31,7 @@
 {
     cgiFormResultType status = \
         cgiValueEscapeData(
-            [data cString],
+            [data cStringUsingEncoding:NSUTF8StringEncoding],
             [len intValue]);
 
     return status;

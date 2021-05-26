@@ -18,11 +18,15 @@
     result[0] = '\0';
 
     cgiFormResultType status = \
-        cgiFormString((char *)[name cString], result, _max);
+        cgiFormString(
+            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            result,
+            _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSString stringWithCString: result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -45,11 +49,15 @@
     result[0] = '\0';
 
     cgiFormResultType status = \
-        cgiFormStringNoNewlines((char *)[name cString], result, _max);
+        cgiFormStringNoNewlines(
+            (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+            result,
+            _max);
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSString stringWithCString: result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSString stringWithCString:result encoding:NSUTF8StringEncoding], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -68,14 +76,15 @@
 
     cgiFormResultType status = \
         cgiFormStringSpaceNeeded(
-	        (char *)[name cString],
+	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
             result);
 
     int _result = *result;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithInt:_result], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -94,15 +103,16 @@
 
     cgiFormResultType status = \
         cgiFormInteger(
-	        (char *)[name cString],
+	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
             result,
             [defaultV intValue]);
 
     int _result = *result;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithInt:_result], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -122,7 +132,7 @@
 
     cgiFormResultType status = \
         cgiFormIntegerBounded(
-	        (char *)[name cString],
+	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
             result,
             [min intValue],
             [max intValue],
@@ -131,8 +141,9 @@
     int _result = *result;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithInt:_result], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -151,15 +162,16 @@
 
     cgiFormResultType status = \
         cgiFormDouble(
-	        (char *)[name cString],
+	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
             result,
             [defaultV doubleValue]);
 
     int _result = *result;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithDouble: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithDouble:_result], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -179,7 +191,7 @@
 
     cgiFormResultType status = \
         cgiFormDoubleBounded(
-	        (char *)[name cString],
+	        (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
             result,
             [min doubleValue],
             [max doubleValue],
@@ -188,8 +200,9 @@
     double _result = *result;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithDouble: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithDouble:_result], @"result",
+        nil];
     if (!out) {
         free(result);
         return nil;
@@ -218,15 +231,16 @@
     int choicesTotal = [choices count];
 
     cgiFormResultType status = cgiFormSelectSingle(
-	    (char *)[name cString],
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
         choicesText, choicesTotal, 
 	    result, [defaultV intValue]);
 
     int _result = *result;
 
     out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
-        [NSNumber numberWithInt: _result], @"result"];
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
+        [NSNumber numberWithInt:_result], @"result",
+        nil];
     if (!out)
         goto ERROR_FUNCTION;
 
@@ -289,8 +303,8 @@ ERROR_FUNCTION:
         goto ERROR_FUNCTION;
 
     cgiFormResultType status = cgiFormSelectMultiple(
-	    (char *)[name cString], choicesText, choicesTotal, 
-	    result, invalid);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding],
+        choicesText, choicesTotal, result, invalid);
 
     {
         size_t i;
@@ -305,9 +319,10 @@ ERROR_FUNCTION:
     int _invalid = *invalid;
 
     NSDictionary *out = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithOCGIFormResultType: status], @"status",
+        [NSNumber numberWithOCGIFormResultType:status], @"status",
         _result, @"result",
-        [NSNumber numberWithInt: _invalid], @"invalid"];
+        [NSNumber numberWithInt:_invalid], @"invalid",
+        nil];
     if (!out)
         goto ERROR_FUNCTION;
 
@@ -364,7 +379,7 @@ ERROR_FUNCTION:
 +(NSNumber *) checoboxSingleBy: (NSString *)name
 {
     cgiFormResultType status = cgiFormCheckboxSingle(
-	    (char *)[name cString]);
+	    (char *)[name cStringUsingEncoding:NSUTF8StringEncoding]);
 
     return [NSNumber numberWithOCGIFormResultType: status];
 }
