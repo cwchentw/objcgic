@@ -2,7 +2,7 @@
 
 ## Warning
 
-objcgic is still experimental. The API may change without warning. Don't use it on production environment yet.
+objcgic is still experimental.
 
 ## System Requirements
 
