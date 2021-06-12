@@ -91,4 +91,4 @@ For better compatibility between libobjc and GNUstep, we use the libobjc of GCC 
 
 ## Copyright
 
-Copyright (c) 2020, Michael Chen. Licensed under MIT, the same license as cgic itself.
+Copyright (c) 2020-2021, Michelle Chen. Licensed under MIT, the same license as cgic itself.
